@@ -13,6 +13,7 @@ public class SendFileOptions
 public class FileTransfer
 {
     private string _filePath { get; set; }
+    private string _baseUrl { get; set; }
     private string _authUrl { get; set; }
     private string _appUploadUrl { get; set; }
     private HttpClientHandler _clientHandler { get; set; }
@@ -21,8 +22,9 @@ public class FileTransfer
     public FileTransfer()
     {
         _filePath = "C:/Users/SHT VM/projects/ConnectFileSendDemo/test-file.txt"; //! CHANGE ME
-        _authUrl = "http://localhost:54833/Account/AppLogin"; //! CHANGE ME
-        _appUploadUrl = "http://localhost:54833/Files/AppUpload"; //! CHANGE ME
+        _baseUrl = "https://sigmanest-connect.sht.dev";
+        _authUrl = $"{_baseUrl}/Account/AppLogin"; //! CHANGE ME
+        _appUploadUrl = $"{_baseUrl}/Files/AppUpload"; //! CHANGE ME
         _clientHandler = new HttpClientHandler();
         _client = new HttpClient(_clientHandler);
     }
